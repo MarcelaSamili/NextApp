@@ -11,7 +11,7 @@ const Navbar = async () => {
           <Image src="/logo.png" alt="logo" width={144} height={30} />
         </Link>
 
-        <div className="flex items-center gap-6 text-black text-[16pt]">
+        <div className="flex items-center gap-5 text-black text-[16pt]">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">
@@ -27,7 +27,8 @@ const Navbar = async () => {
                 <button type="submit">Logout</button>
               </form>
 
-              <Link href={`/user${session?.id}`}>
+              <Link href={`/user${session?.user}`}>
+                {/*é ID em user*/}
                 <span>{session?.user?.name}</span>
               </Link>
             </>

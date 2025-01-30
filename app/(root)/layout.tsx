@@ -1,5 +1,4 @@
-import Navbar from '@/component/Navbar';
-import React from 'react';
+import Navbar from '@/app/component/Navbar';
 
 export default function Layout({
   children,

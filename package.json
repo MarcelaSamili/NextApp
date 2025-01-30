@@ -14,6 +14,10 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.2",
+    "@mui/material": "^6.4.2",
     "@tailwindcss/typography": "^0.5.16",
     "next": "15.1.6",
     "next-auth": "^5.0.0-beta.25",
