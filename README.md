@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+##Dependency configuration
+In addition to these initial configurations, you must install:
+npm install next-auth@beta
+npx auth secret
+
+configure auth on github, as that is where you will get the keys:
+AUTH_GITHUB_ID and
+AUTH_GITHUB_SECRET
+follow the steps:
+
+Steps
+- Open your github
+- Click on the icon and go to settings
+- On the side go to developer settings
+- Click on OAuth App
+- Create the authorizer
+- Get the Client ID
+- Get Client Secrets
+-Put in the .env in the project
+
