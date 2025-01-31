@@ -16,7 +16,7 @@ export default async function Home({
       author: { _id: 1, name: 'Marcela' },
       _id: 1,
       description: 'This is a description',
-      image: '../imgs/img1.jpg',
+      image: { img1 },
       category: 'Developer',
       title: 'We Developers',
     },

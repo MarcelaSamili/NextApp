@@ -1,5 +1,6 @@
 import { formatDate } from '@/lib/utils';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -56,6 +57,9 @@ const StartupCard = ({ post }: { post: StartupsCardType }) => {
         <Link href={`/?query${category.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
+        <Button variant="contained" className="startup-card_btn">
+          <Link href={`/startup/${_id}`}>Delails</Link>
+        </Button>
       </div>
     </li>
   );
