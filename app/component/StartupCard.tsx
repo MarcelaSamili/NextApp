@@ -4,6 +4,9 @@ import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
+let imglink =
+  'https://marquesfernandes.com/wp-content/uploads/2020/08/ferenc-almasi-c8h0n7fSTqs-unsplash.jpg';
+
 const StartupCard = ({ post }: { post: StartupsCardType }) => {
   const {
     _createAt,
@@ -50,7 +53,7 @@ const StartupCard = ({ post }: { post: StartupsCardType }) => {
       <Link href={`/startups/${_id}`}>
         <p className="startup-card-desc">{description}</p>
 
-        <img src={image} alt="placeholder" className="startup-card_img"></img>
+        <img src={imglink} alt="placeholder" className="startup-card_img"></img>
       </Link>
 
       <div className="flex-between gap-3 mt-5">
