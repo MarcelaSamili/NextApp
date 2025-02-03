@@ -1,17 +1,20 @@
 import { formatDate } from '@/lib/utils';
+import { Author, Startup } from '@/sanity/types';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export type StartupTypeCard = Omit<Startup, 'author'> & { author?: Author };
+
 let imglink =
   'https://marquesfernandes.com/wp-content/uploads/2020/08/ferenc-almasi-c8h0n7fSTqs-unsplash.jpg';
 
-const StartupCard = ({ post }: { post: StartupsCardType }) => {
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
-    _createAt,
+    _createdAt,
     views,
-    author: { _id: authorId, name },
+    author,
     title,
     category,
     _id,
@@ -21,7 +24,7 @@ const StartupCard = ({ post }: { post: StartupsCardType }) => {
   return (
     <li className="startup-card group">
       <div className="flex-between">
-        <p className="startup_card_date">{formatDate(_createAt)}</p>
+        <p className="startup_card_date">{formatDate(_createdAt)}</p>
 
         <div className="flex gap.1.5">
           <VisibilityIcon className="size-6 text-primary" />
@@ -31,15 +34,15 @@ const StartupCard = ({ post }: { post: StartupsCardType }) => {
 
       <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`/user/${authorId}`}>
-            <p className="text-16-medium line-clamp-1">{name}</p>
+          <Link href={`/user/${author?._id}`}>
+            <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
 
           <Link href={`/startups/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`/user/${authorId}`}>
+        <Link href={`/user/${author?._id}`}>
           <Image
             src="https://placehold.co/600x400"
             alt="placeholder"
@@ -53,11 +56,11 @@ const StartupCard = ({ post }: { post: StartupsCardType }) => {
       <Link href={`/startups/${_id}`}>
         <p className="startup-card-desc">{description}</p>
 
-        <img src={imglink} alt="placeholder" className="startup-card_img"></img>
+        <img src={image} alt="placeholder" className="startup-card_img"></img>
       </Link>
 
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query${category.toLowerCase()}`}>
+        <Link href={`/?query${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
         <Button variant="contained" className="startup-card_btn">
