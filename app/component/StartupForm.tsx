@@ -2,7 +2,7 @@
 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@mui/material';
+//import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 //O editor vem dessa biblioteca, para saber mais sobre ela
 import MDEditor from '@uiw/react-md-editor';
@@ -12,6 +12,8 @@ import { formSchema } from '@/lib/validation';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { createPitch } from '@/lib/actions';
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -30,20 +32,16 @@ const StartupForm = () => {
       };
       await formSchema.parseAsync(formValues);
 
-      console.log(formValues);
+      const result = await createPitch(prevState, formData, pitch);
 
-      //const result = await createIdea(prevState, formData, pitch)
-
-      //console.log(result);
-
-      /* if (result.status == 'SUCCESS') {
+      if (result.status == 'SUCCESS') {
         toast({
           title: 'Success',
           description: 'Your startup pith has been created successfuly',
         });
-        router.push(`/statup/${result.id}`);
+        router.push(`/statup/${result._id}`);
       }
-      return result;*/
+      return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
@@ -72,8 +70,6 @@ const StartupForm = () => {
 
       /*""error.flatten()"" retorna um objeto com os erros organizados. 
     ""fieldErrors""" contém os erros específicos de cada campo do formulário.*/
-    } finally {
-      /** */
     }
   };
 
@@ -83,14 +79,14 @@ const StartupForm = () => {
   });
 
   return (
-    <form action={formAction => {}} className="startup-form">
+    <form action={formAction} className="startup-form">
       <div>
         <label htmlFor="title" className="startup-form_label">
           Title
         </label>
         <Input
           id="title"
-          name=""
+          name="title"
           className="startup-form_input"
           required
           placeholder="Startup Title"
@@ -165,10 +161,11 @@ const StartupForm = () => {
         type="submit"
         className="startup-form_btn text-white "
         disabled={isPending}
-        variant="contained"
-        endIcon={<SendIcon className="size-6 ml-3" />}
+        /*variant="contained"*/
+        /*endIcon={}*/
       >
         {isPending ? 'Submitting...' : 'Submit your pitch'}
+        <SendIcon className="size-6 ml-3" />
       </Button>
     </form>
   );
