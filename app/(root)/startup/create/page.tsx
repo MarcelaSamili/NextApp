@@ -1,5 +1,5 @@
 import StartupForm from '@/app/component/StartupForm';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import React from 'react';
 

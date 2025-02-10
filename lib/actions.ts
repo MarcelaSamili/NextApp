@@ -1,16 +1,16 @@
 'use server';
 
-import { auth } from '@/auth';
 import { parseServerActionResponse } from './utils';
 import slugify from 'slugify';
 import { writeClient } from '@/sanity/lib/write';
+import { auth } from '@/lib/auth';
 
 export const createPitch = async (
   state: any,
   form: FormData,
   pitch: string
 ) => {
-  const session = await auth;
+  const session = await auth();
 
   if (!session)
     return parseServerActionResponse({

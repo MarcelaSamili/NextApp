@@ -1,4 +1,4 @@
-import { auth, signOut, signIn } from '@/auth';
+import { auth, signOut, signIn } from '@/lib/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,9 +27,8 @@ const Navbar = async () => {
                 <button type="submit">Logout</button>
               </form>
 
-              <Link href={`/user${session?.user}`}>
-                {/*é ID em user*/}
-                <span>{session?.user?.name}</span>
+              <Link href={`/user/${session?.user.id}`}>
+                <span>{session?.user.name}</span>
               </Link>
             </>
           ) : (
