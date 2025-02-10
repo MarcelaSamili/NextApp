@@ -1,9 +1,10 @@
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import { Author, Startup } from '@/sanity/types';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export type StartupTypeCard = Omit<Startup, 'author'> & { author?: Author };
 
@@ -70,5 +71,13 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
     </li>
   );
 };
-
+export const StartupCardSkaleton = () => (
+  <>
+    {[0, 1, 2, 3, 4].map((index: number) => (
+      <li key={cn('skeleton', index)}>
+        <Skeleton className="startup-card-skeleton" />
+      </li>
+    ))}
+  </>
+);
 export default StartupCard;
