@@ -1,5 +1,4 @@
-import { Rule, rule } from 'postcss';
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 
 export const startup = defineType({
   name: 'startup',
