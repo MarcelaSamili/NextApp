@@ -39,7 +39,7 @@ const StartupForm = () => {
           title: 'Success',
           description: 'Your startup pith has been created successfuly',
         });
-        router.push(`/statup/${result._id}`);
+        router.push(`/statup/${result?._id}`);
       }
       return result;
     } catch (error) {

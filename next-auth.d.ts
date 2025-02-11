@@ -7,17 +7,3 @@ declare module 'next-auth' {
     id: string;
   }
 }
-
-/*declare module 'next-auth' {
-  interface Session {
-    id: string;
-  }
-  interface JWT {
-    id: string;
-  }
-} */
-/*interface Session {
-    user: {
-      id: string;
-    } & DefaultSession['user'];
-  }*/

@@ -1,16 +1,11 @@
 import { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
-import { client } from './client';
+import { client } from '@/sanity/lib/client';
 import { writeClient } from './write';
 import { AUTHOR_BY_GITHUB_ID_QUERY } from './queries';
 
 export const authConfig: NextAuthConfig = {
-  providers: [
-    GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    }),
-  ],
+  providers: [GitHub],
   callbacks: {
     async signIn({ user, profile }) {
       const { name, email, image } = user;
@@ -40,7 +35,6 @@ export const authConfig: NextAuthConfig = {
         const user = await client
           .withConfig({ useCdn: false })
           .fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id: profile?.id });
-        console.log('Token atualizado:', token);
 
         token.id = user?._id;
       }
@@ -48,7 +42,6 @@ export const authConfig: NextAuthConfig = {
     },
 
     async session({ session, token }) {
-      console.log('Token recebido no callback session:', token);
       session.user.id = token.id as string;
       return session;
     },
