@@ -8,9 +8,6 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export type StartupTypeCard = Omit<Startup, 'author'> & { author?: Author };
 
-let imglink =
-  'https://marquesfernandes.com/wp-content/uploads/2020/08/ferenc-almasi-c8h0n7fSTqs-unsplash.jpg';
-
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
@@ -39,13 +36,13 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
             <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
 
-          <Link href={`/startups/${_id}`}>
+          <Link href={`/startup/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/600x400"
+            src={author?.image!}
             alt="placeholder"
             width={48}
             height={48}
@@ -54,7 +51,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </Link>
       </div>
 
-      <Link href={`/startups/${_id}`}>
+      <Link href={`/startup/${_id}`}>
         <p className="startup-card-desc">{description}</p>
 
         <img src={image} alt="placeholder" className="startup-card_img"></img>
