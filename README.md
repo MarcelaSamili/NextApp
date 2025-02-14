@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+##Build and Deploy a Production-Ready Full Stack App using Nextjs, ReactJs, Typescript and TailwindCss.
+
+-The project are not bilded, so you can init using npm run dev.
+-I believe that for it to work on your machine you will need to replace my credentials with yours... so just try starting with "npm run dev", if it doesn't work use your credentials, I'll leave the step by step here.
+
+#Dependency configuration
+In addition to these initial configurations, you must install:
+npm install next-auth@beta
+npx auth secret
+
+configure auth on github, as that is where you will get the keys:
+AUTH_GITHUB_ID and
+AUTH_GITHUB_SECRET
+follow the steps:
+
+Steps
+- Open your github
+- Click on the icon and go to settings
+- On the side go to developer settings
+- Click on OAuth App
+- Create the authorizer
+- Get the Client ID
+- Get Client Secrets
+-Put in the .env in the project
+
+-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
@@ -35,23 +60,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-##Dependency configuration
-In addition to these initial configurations, you must install:
-npm install next-auth@beta
-npx auth secret
 
-configure auth on github, as that is where you will get the keys:
-AUTH_GITHUB_ID and
-AUTH_GITHUB_SECRET
-follow the steps:
-
-Steps
-- Open your github
-- Click on the icon and go to settings
-- On the side go to developer settings
-- Click on OAuth App
-- Create the authorizer
-- Get the Client ID
-- Get Client Secrets
--Put in the .env in the project
 
