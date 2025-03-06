@@ -1,4 +1,5 @@
-## Project build and Deploy a Production-Ready Full Stack App using Nextjs, ReactJs, Typescript and TailwindCss.
+## A production-ready full stack application using Nextjs, ReactJs, Typescript and TailwindCss.
+
 
 -The project are not bilded, so you can init using npm run dev.
 -I believe that for it to work on your machine you will need to replace my credentials with yours... 
